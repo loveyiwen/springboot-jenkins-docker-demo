@@ -153,7 +153,7 @@ public class DateTimeUtils {
      * @return LocalDateTime对象
      */
     public static LocalDateTime fromTimestamp(long timestamp) {
-        return LocalDateTime.ofEpochSecond(timestamp, 0, ZoneOffset.systemDefault());
+        return LocalDateTime.ofEpochSecond(timestamp, 0, ZoneId.systemDefault().getRules().getOffset(Instant.ofEpochSecond(timestamp)));
     }
 
     /**
